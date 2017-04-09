@@ -1,10 +1,9 @@
 /*
  * edma.h
  *
- *  Created on: 2017年4月7日
- *      Author: tupers
+ *  Created on: 2017年4月9日
+ *      Author: glamo
  */
-
 
 #ifndef EDMA_H_
 #define EDMA_H_
@@ -18,23 +17,16 @@
 
 typedef struct edma_object_t
 {
-	EDMA3_DRV_Handle hEdma;
-	unsigned int iChannel;	// channel handle
-	unsigned int iTcc;// Tcc
-	EDMA3_OS_Sem_Handle hEdmaSem;
-	unsigned short edma3InstanceId;
-	unsigned short Acnt;
-	unsigned short Bcnt;
-	unsigned short Ccnt;
-	unsigned short SrcBIDX;
-	unsigned short DstBIDX;
-	unsigned short SrcCIDX;
-	unsigned short DstCIDX;
+    EDMA3_DRV_Handle hEdma;
+    unsigned int iChannel;  // channel handle
+    unsigned int iTcc;// Tcc
+    EDMA3_OS_Sem_Handle hEdmaSem;
+    unsigned short edma3InstanceId;
+    EDMA3_DRV_PaRAMRegs params;
 } edma_object_t;
 
-void edma_input_isr(uint32_t tcc, EDMA3_RM_TccStatus status, void *appData);
-void edma_output_isr(uint32_t tcc,EDMA3_RM_TccStatus status, void *appData);
-void edma_createChan(edma_object_t *EdmaObj, void *Src, void *Dst,EDMA3_RM_TccCallback cb,void* cbData);
+void edma_createChan(edma_object_t *EdmaObj,EDMA3_RM_TccCallback cb,void* cbData);
+void edma_setParam(edma_object_t *EdmaObj,void *Src,void *Dst);
 int Edma3_CacheWb(unsigned int buf,unsigned int size);
 int Edma3_CacheInv(unsigned int buf,unsigned int size);
 void edma_start(edma_object_t EdmaObj);
@@ -42,8 +34,5 @@ void edma_wait(edma_object_t EdmaObj);
 void edma_deleteChan(edma_object_t EdmaObj);
 void edma_release(edma_object_t* EdmaObj);
 void edma_config(edma_object_t* EdmaObj);
-
-
-
 
 #endif /* EDMA_H_ */
