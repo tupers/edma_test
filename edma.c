@@ -10,14 +10,14 @@
 
 void edma_config(edma_object_t* EdmaObj)
 {
-    EDMA3_DRV_Result edmaResult = EDMA3_DRV_SOK;
-    Semaphore_Params semParams;
-    Semaphore_Params_init(&semParams);
-    edmaResult = edma3OsSemCreate(EdmaObj->edma3InstanceId, &semParams, &EdmaObj->hEdmaSem);
+    EDMA3_DRV_Result edma3Result = EDMA3_DRV_SOK;
+//    Semaphore_Params semParams;
+//    Semaphore_Params_init(&semParams);
+//    edmaResult = edma3OsSemCreate(EdmaObj->edma3InstanceId, &semParams, &EdmaObj->hEdmaSem);
     EdmaObj->hEdma=NULL;
     EdmaObj->iChannel=EDMA3_DRV_DMA_CHANNEL_ANY;
     EdmaObj->iTcc=EDMA3_DRV_TCC_ANY;
-    EdmaObj->hEdma = edma3init(EdmaObj->edma3InstanceId,&edmaResult);
+    EdmaObj->hEdma = edma3init(EdmaObj->edma3InstanceId,&edma3Result);
 }
 
 void edma_createChan(edma_object_t *EdmaObj,EDMA3_RM_TccCallback cb,void* cbData)
@@ -34,6 +34,8 @@ void edma_createChan(edma_object_t *EdmaObj,EDMA3_RM_TccCallback cb,void* cbData
 void edma_setParam(edma_object_t *EdmaObj,void *Src,void *Dst)
 {
     EDMA3_DRV_Result edma3Result = EDMA3_DRV_SOK;
+    Src = (void*) GLOBAL_ADDR((signed char *)Src);
+    Dst = (void*) GLOBAL_ADDR((signed char *)Dst);
     edma3Result = EDMA3_DRV_setSrcParams(EdmaObj->hEdma, EdmaObj->iChannel,
             (unsigned int) (Src), EDMA3_DRV_ADDR_MODE_INCR, EDMA3_DRV_W8BIT); // set source parameters - also assigns defaults to Options register
     edma3Result = EDMA3_DRV_setDestParams(EdmaObj->hEdma, EdmaObj->iChannel,
@@ -89,7 +91,6 @@ void edma_deleteChan(edma_object_t EdmaObj)
 void edma_release(edma_object_t* EdmaObj)
 {
     EDMA3_DRV_Result edma3Result = EDMA3_DRV_SOK;
-    edma3Result = edma3OsSemDelete(EdmaObj->hEdmaSem);
     edma3Result = EDMA3_DRV_close(EdmaObj->hEdma, NULL);
     edma3Result = EDMA3_DRV_delete(EdmaObj->edma3InstanceId, NULL);
 }

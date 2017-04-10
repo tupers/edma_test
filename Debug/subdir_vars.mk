@@ -7,23 +7,20 @@ CFG_SRCS += \
 ../app.cfg 
 
 C_SRCS += \
-../blockQueue.c \
-../block_alg.c \
-../edmaTest.c \
+../blockAlg.c \
+../edma.c \
 ../main.c \
 ../sample_c6657_cfg.c 
 
 OBJS += \
-./blockQueue.obj \
-./block_alg.obj \
-./edmaTest.obj \
+./blockAlg.obj \
+./edma.obj \
 ./main.obj \
 ./sample_c6657_cfg.obj 
 
 C_DEPS += \
-./blockQueue.pp \
-./block_alg.pp \
-./edmaTest.pp \
+./blockAlg.pp \
+./edma.pp \
 ./main.pp \
 ./sample_c6657_cfg.pp 
 
@@ -48,16 +45,14 @@ GEN_MISC_DIRS__QUOTED += \
 "configPkg\" 
 
 C_DEPS__QUOTED += \
-"blockQueue.pp" \
-"block_alg.pp" \
-"edmaTest.pp" \
+"blockAlg.pp" \
+"edma.pp" \
 "main.pp" \
 "sample_c6657_cfg.pp" 
 
 OBJS__QUOTED += \
-"blockQueue.obj" \
-"block_alg.obj" \
-"edmaTest.obj" \
+"blockAlg.obj" \
+"edma.obj" \
 "main.obj" \
 "sample_c6657_cfg.obj" 
 
@@ -68,9 +63,8 @@ GEN_OPTS__FLAG += \
 --cmd_file="./configPkg/compiler.opt" 
 
 C_SRCS__QUOTED += \
-"../blockQueue.c" \
-"../block_alg.c" \
-"../edmaTest.c" \
+"../blockAlg.c" \
+"../edma.c" \
 "../main.c" \
 "../sample_c6657_cfg.c" 
 

@@ -10,12 +10,12 @@
 
 
 -l"C:\Users\tupers\workspace_v6_0\edma_test\Debug\configPkg\package\cfg\app_pe66.oe66"
--l"C:\ti\framework_components_3_40_02_07\packages\ti\sdo\fc\rman\lib\release\rman.ae66"
--l"C:\ti\framework_components_3_40_02_07\packages\ti\sdo\fc\dskt2\lib\release\dskt2.ae66"
+-l"C:\ti\uia_2_00_03_43\packages\ti\uia\sysbios\lib\release\ti.uia.sysbios.ae66"
+-l"C:\ti\uia_2_00_03_43\packages\ti\uia\loggers\lib\release\ti.uia.loggers.ae66"
 -l"C:\Users\tupers\workspace_v6_0\edma_test\src\sysbios\sysbios.ae66"
--l"C:\ti\framework_components_3_40_02_07\packages\ti\sdo\fc\utils\osalsupport\lib\release\osal_support.ae66"
--l"C:\ti\framework_components_3_40_02_07\packages\ti\sdo\fc\global\lib\release\fcsettings.ae66"
--l"C:\ti\framework_components_3_40_02_07\packages\ti\sdo\fc\ires\nullresource\lib\release\nullres.ae66"
+-l"C:\ti\uia_2_00_03_43\packages\ti\uia\services\lib\release\ti.uia.services.ae66"
+-l"C:\ti\uia_2_00_03_43\packages\ti\uia\runtime\lib\release\ti.uia.runtime.ae66"
+-l"C:\ti\uia_2_00_03_43\packages\ti\uia\events\lib\release\ti.uia.events.ae66"
 -l"C:\ti\bios_6_45_01_29\packages\ti\targets\rts6000\lib\ti.targets.rts6000.ae66"
 -l"C:\ti\bios_6_45_01_29\packages\ti\targets\rts6000\lib\boot.ae66"
 
@@ -71,23 +71,21 @@ MEMORY
 
 /* Content from xdc.services.getset (null): */
 
-/* Content from ti.sysbios.rts (ti/sysbios/rts/linkcmd.xdt): */
+/* Content from xdc.rta (null): */
+
+/* Content from ti.uia.events (null): */
+
+/* Content from ti.uia.runtime (null): */
 
 /* Content from xdc.runtime.knl (null): */
 
+/* Content from ti.sysbios.rts (ti/sysbios/rts/linkcmd.xdt): */
+
 /* Content from ti.sysbios.family.c62 (null): */
 
-/* Content from ti.xdais (null): */
-
-/* Content from ti.sdo.fc.ires (null): */
-
-/* Content from ti.sdo.fc.ires.nullresource (null): */
-
-/* Content from ti.sdo.fc.global (null): */
-
-/* Content from ti.sdo.fc.utils.osalsupport (null): */
-
 /* Content from ti.sysbios.family.c64p.tci6488 (null): */
+
+/* Content from ti.uia.services (null): */
 
 /* Content from ti.catalog.c6000 (null): */
 
@@ -101,19 +99,23 @@ MEMORY
 
 /* Content from ti.platforms.evm6657 (null): */
 
-/* Content from ti.sysbios (null): */
-
 /* Content from ti.sysbios.hal (null): */
 
 /* Content from ti.sysbios.family.c64p (ti/sysbios/family/c64p/linkcmd.xdt): */
+
+/* Content from ti.sysbios.family.c66 (ti/sysbios/family/c66/linkcmd.xdt): */
 
 /* Content from ti.sysbios.knl (null): */
 
 /* Content from ti.sysbios.timers.timer64 (null): */
 
-/* Content from ti.sysbios.family.c66 (ti/sysbios/family/c66/linkcmd.xdt): */
+/* Content from ti.sysbios (null): */
 
 /* Content from ti.sysbios.family.c66.tci66xx (null): */
+
+/* Content from ti.sysbios.syncs (null): */
+
+/* Content from ti.uia.loggers (null): */
 
 /* Content from ti.sysbios.gates (null): */
 
@@ -121,11 +123,9 @@ MEMORY
 
 /* Content from ti.sysbios.xdcruntime (null): */
 
-/* Content from ti.sdo.fc.dskt2 (null): */
-
-/* Content from ti.sdo.fc.rman (null): */
-
 /* Content from ti.sysbios.utils (null): */
+
+/* Content from ti.uia.sysbios (null): */
 
 /* Content from configPkg (null): */
 

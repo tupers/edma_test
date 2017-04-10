@@ -7,9 +7,8 @@ SHELL = cmd.exe
 CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/c6000_7.4.12
 
 ORDERED_OBJS += \
-"./blockQueue.obj" \
-"./block_alg.obj" \
-"./edmaTest.obj" \
+"./blockAlg.obj" \
+"./edma.obj" \
 "./main.obj" \
 "./sample_c6657_cfg.obj" \
 $(GEN_CMDS__FLAG) \
@@ -136,7 +135,7 @@ BIN_OUTPUTS__QUOTED += \
 all: edma_test.out
 
 # Tool invocations
-edma_test.out: $(OBJS) $(GEN_CMDS)
+edma_test.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C6000 Linker'
 	"C:/ti/ccsv6/tools/compiler/c6000_7.4.12/bin/cl6x" -mv6600 --abi=eabi -g --define=ADD_IRES_RESOURCE --diag_wrap=off --diag_warning=225 --display_error_number -z -m"edma_test.map" -i"C:/ti/ccsv6/tools/compiler/c6000_7.4.12/lib" -i"C:/ti/ccsv6/tools/compiler/c6000_7.4.12/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="edma_test_linkInfo.xml" --rom_model -o "edma_test.out" $(ORDERED_OBJS)
@@ -153,8 +152,8 @@ edma_test.hex: $(EXE_OUTPUTS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "blockQueue.pp" "block_alg.pp" "edmaTest.pp" "main.pp" "sample_c6657_cfg.pp" 
-	-$(RM) "blockQueue.obj" "block_alg.obj" "edmaTest.obj" "main.obj" "sample_c6657_cfg.obj" 
+	-$(RM) "blockAlg.pp" "edma.pp" "main.pp" "sample_c6657_cfg.pp" 
+	-$(RM) "blockAlg.obj" "edma.obj" "main.obj" "sample_c6657_cfg.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

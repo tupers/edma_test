@@ -12,7 +12,11 @@
 #include <ti/sdo/edma3/drv/sample/bios6_edma3_drv_sample.h>
 #include <ti/sysbios/hal/Cache.h>
 #include <xdc/runtime/System.h>
+#include <ti/sysbios/BIOS.h>
 
+
+#define GLOBAL_ADDR(addr) (getGlobalAddr(addr))
+extern signed char*  getGlobalAddr(signed char* addr);
 
 
 typedef struct edma_object_t
@@ -20,7 +24,7 @@ typedef struct edma_object_t
     EDMA3_DRV_Handle hEdma;
     unsigned int iChannel;  // channel handle
     unsigned int iTcc;// Tcc
-    EDMA3_OS_Sem_Handle hEdmaSem;
+//    EDMA3_OS_Sem_Handle hEdmaSem;
     unsigned short edma3InstanceId;
     EDMA3_DRV_PaRAMRegs params;
 } edma_object_t;
